@@ -46,3 +46,34 @@ class Book:
         self.name += other.name
         self.author += other.author
         self.pages += other.pages
+
+# Task №3
+class PassengerPlane:
+    manufacturer: str
+    model: str
+    capacity_passenger: int
+    current_height: float
+    current_speed: float
+    def __init__(self,manufacturer: str, model: str, current_height: float, current_speed: float):
+        self.manufacturer = manufacturer
+        self.model = model
+        self.current_height = current_height
+        self.current_speed = current_speed
+
+    def takeoff(self):
+        print("Самолет взлетел!")
+
+    def landing(self):
+        print("Самолет приземлился!")
+
+    def change_height(self,height: float):
+        self.current_height = height
+
+    def change_speed(self, speed: float):
+        self.current_speed = speed
+
+    def __add__(self, other):
+        self.manufacturer += other.manufacturer
+        self.model += other.model
+        self.current_height += other.current_height
+        self.current_speed += other.current_speed
