@@ -49,11 +49,13 @@ class Book:
 
 # Task №3
 class PassengerPlane:
+
     manufacturer: str
     model: str
     capacity_passenger: int
     current_height: float
     current_speed: float
+
     def __init__(self,manufacturer: str, model: str, current_height: float, current_speed: float):
         self.manufacturer = manufacturer
         self.model = model
@@ -77,3 +79,35 @@ class PassengerPlane:
         self.model += other.model
         self.current_height += other.current_height
         self.current_speed += other.current_speed
+
+# Task №4
+class MusicAlbum:
+
+    name: str
+    executor: str
+    genre: str
+    track_list: list
+
+    def __init__(self,name: str, executor: str, genre: str, track_list: list):
+        self.name = name
+        self.executor = executor
+        self.genre = genre
+        self.track_list = track_list
+
+    def add_track(self,track: str):
+        self.track_list.append(track)
+
+    def del_track(self,track: str):
+        if track in self.track_list:
+            for i in range(len(self.track_list)):
+                if track == self.track_list[i]:
+                    self.track_list.pop(i)
+                    break
+        else:
+            print(f"{track} в альбоме {self.name} отсутствует")
+
+    def play(self,track: str):
+        if track in self.track_list:
+            print("play Music")
+        else:
+            print(f"{track} в альбоме {self.name} отсутствует, выберите другой трек")
