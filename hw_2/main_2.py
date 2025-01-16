@@ -94,7 +94,7 @@ class ModelWindow:
                 f"Цвет окна: {self.color_window}\nРазмер по горизонтали: {self.size_width}\n"
                 f"Размер по вертикали: {self.size_height}")
 
-# Task №4
+# Task №8
 class Time:
 
     hour: int
