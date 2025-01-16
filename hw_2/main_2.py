@@ -93,3 +93,65 @@ class ModelWindow:
         return (f"Заголовок :{self.title}\nКоординаты левого верхнего угла: {self.coord_left_upper_corner}\n"
                 f"Цвет окна: {self.color_window}\nРазмер по горизонтали: {self.size_width}\n"
                 f"Размер по вертикали: {self.size_height}")
+
+# Task №4
+class Time:
+
+    hour: int
+    min: int
+    sec: int
+
+    def __init__(self, hour: int, min: int, sec: int):
+        self.hour = hour
+        self.min = min
+        self.sec = sec
+
+    def correction(self):
+        if self.sec > 59:
+            self.min += self.sec // 60
+            self.sec = self.sec % 60
+        if self.min > 59:
+            self.hour += self.min // 60
+            self.min = self.min % 60
+
+    def __add__(self, other):
+        new_hour = self.hour + other.hour
+        new_min = self.min + other.min
+        new_sec = self.sec + other.sec
+        return Time(new_hour, new_min, new_sec)
+
+    def __sub__(self, other):
+        if self.hour < other.hour and self.hour != other.hour:
+            return False
+        else:
+            if self.sec < other.sec and self.sec != other.sec:
+                self.min -= 1
+                new_sec = self.sec + 60 - other.sec
+            else:
+                new_sec = self.sec - other.sec
+            if self.min < other.min and self.min != other.min:
+                self.hour -= 1
+                new_min = self.min + 60 - other.min
+                new_hour = self.hour - other.hour
+            else:
+                new_min = self.min - other.min
+                new_hour = self.hour - other.hour
+        return Time(new_hour, new_min, new_sec)
+
+    def __mul__(self, other):
+        return Time(self.hour * other, self.min * other, self.sec * other)
+
+    def __str__(self):
+        if self.hour // 10 == 0:
+            buff_hour = "0" + str(self.hour)
+        else:
+            buff_hour = self.hour
+        if self.min // 10 == 0:
+            buff_min = int("0" + str(self.min))
+        else:
+            buff_min = self.min
+        if self.sec // 10 == 0:
+            buff_sec = int("0" + str(self.sec))
+        else:
+            buff_sec = self.sec
+        return f"{buff_hour}:{buff_min}:{buff_sec}"
