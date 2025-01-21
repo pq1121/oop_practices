@@ -1,18 +1,22 @@
 ## Task №1
 class Patient:
-    name: str
+    first_name: str
+    sec_name: str
+    last_name: str
     age: int
     current_sick: str
-    def __init__(self, name: str, age: int, current_sick: str):
-        self.name = name
-        self.age = age
-        self.sick = current_sick
+    def __init__(self, first_name: str, sec_name: str, last_name: str, age: int, current_sick: str):
+        self.__first_name = first_name
+        self.__sec_name = sec_name
+        self.__last_name = last_name
+        self.__age = age
+        self.__sick = current_sick
 
     def reg(self, date: str):
-        print(f"Пациент {self.name} записан на прием {date}")
+        print(f"Пациент {self.__sec_name} {self.__first_name} {self.__last_name} записан на прием {date}")
 
     def __str__(self):
-        return f"Пациент: {self.name}\nВозраст: {self.age}\nЗаболевание: {self.current_sick}"
+        return f"Пациент: {self.__sec_name} {self.__first_name} {self.__last_name}\nВозраст: {self.age}\nЗаболевание: {self.current_sick}"
 
 ## Task №2
 class TouristSpot:
