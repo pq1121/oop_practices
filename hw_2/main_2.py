@@ -5,6 +5,13 @@ class Patient:
     last_name: str
     age: int
     current_sick: str
+    @property
+    def (self):
+        return 
+    
+    @.setter
+    def (self, value):
+        pass
     def __init__(self, first_name: str, sec_name: str, last_name: str, age: int, current_sick: str):
         self.__first_name = first_name
         self.__sec_name = sec_name
