@@ -53,15 +53,15 @@ class Wizard:
     name: str
     faculty: str
     magic_level: float
-    spells: list
+    spells: list[Spell]
     status: str
 
-    def __init__(self, name: str, faculty: str, magic_level: float, spells: list, status: str):
+    def __init__(self, name: str, faculty: str, magic_level: float, status: str):
         self.__name = name
         self.__faculty = faculty
         self.__magic_level = magic_level
-        self.__spells = spells
         self.__status = status
+        self.__spells = []
 
     def get_name(self):
         return self.__name
@@ -79,7 +79,11 @@ class Wizard:
         self.__magic_level = value
 
     def get_spells(self):
-        return self.__spells
+        if len(self.__spells) > 0:
+            for i in range(len(self.__spells)):
+                print(self.__spells[i])
+        else:
+            return False
 
     def get_status(self):
         return self.__status
@@ -89,7 +93,7 @@ class Wizard:
 
     def add_spell(self, spell: Spell):
         self.__spells.append(spell)
-        print(f"Добавлено заклинание {spell}")
+        print("Добавлено заклинание")
 
     def remove_spell(self, spell: list[Spell]):
         if spell in self.__spells:
@@ -107,8 +111,13 @@ class Wizard:
 
     def __str__(self):
         return (f"Имя:{self.__name}\tФакультет:{self.__faculty}\nУровень магической силы:{self.__magic_level}\n"
-                f"Список заклинаний:\n{self.__spells}\nТекущий статус:{self.__status}")
+                f"Текущий статус:{self.__status}\nКоличество заклинаний:\n{len(self.__spells)}\n")
 
 s = Spell('Бомбарда', 5, 'Боевое', 'заклинание, взрыва препятствия')
 s1 = Spell('Бомбарда Максимум', 9, 'Боевое', 'заклинание, взрыва препятствия')
-w = Wizard('Alex', 'Слизорен', 564, s, 'в Хогвартсе')
+w = Wizard('Alex', 'Слизорен', 564,'в Хогвартсе')
+print(w)
+w.add_spell(s)
+w.add_spell(s1)
+print(w)
+w.get_spells()
