@@ -1,3 +1,4 @@
+from __future__ import annotations
 class Spell:
 
     name: str
@@ -6,6 +7,16 @@ class Spell:
     description: str
 
     def __init__(self, name: str, complexity: int, type: str, description: str):
+        if not isinstance(name, str):
+            raise ValueError('Название заклинания должно быть строкой')
+        if not isinstance(complexity, int):
+            raise ValueError('Уровень сложности должен быть целым числом')
+        if not 1 <= complexity <= 10:
+            raise ValueError('Уровень сложности должен быть от 1 до 10')
+        if not isinstance(type, str):
+            raise ValueError('Тип должен быть строкой')
+        if not isinstance(description, str):
+            raise ValueError('Описание должно быть строкой')
         self.__name = name
         self.__complexity = complexity
         self.__type = type
@@ -56,12 +67,22 @@ class Wizard:
     spells: list[Spell]
     status: str
 
-    def __init__(self, name: str, faculty: str, magic_level: float, status: str):
+    def __init__(self, name: str, faculty: str, magic_level: float, status: str, spells=None):
+        if not isinstance(name, str):
+            raise ValueError('Имя должно быть строкой')
+        if not isinstance(faculty, str):
+            raise ValueError('Название факультета должно быть строкой')
+        if not isinstance(magic_level, int):
+            raise ValueError('Уровень магической силы должно быть число')
+        if not magic_level >= 0:
+            raise ValueError('Уровень магической силы не может быть отрицательным')
+        if not isinstance(status, str):
+            raise isinstance('Статус волшебника должно быть строкой')
         self.__name = name
         self.__faculty = faculty
         self.__magic_level = magic_level
         self.__status = status
-        self.__spells = []
+        self.__spells = spells or []
 
     def get_name(self):
         return self.__name
@@ -92,15 +113,22 @@ class Wizard:
         self.__status = value
 
     def add_spell(self, spell: Spell):
-        self.__spells.append(spell)
-        print("Добавлено заклинание")
-
-    def remove_spell(self, spell: list[Spell]):
-        if spell in self.__spells:
-            self.__spells.remove(spell)
-            print(f"Удалено заклинание {spell}")
+        if isinstance(spell, Spell):
+            self.__spells.append(spell)
+            print("Добавлено заклинание")
         else:
-            return False
+            raise ValueError("Не верный формат заклинания")
+
+    def remove_spell(self, spell: Spell):
+        if isinstance(spell, Spell):
+            if spell in self.__spells:
+                self.__spells.remove(spell)
+                return True
+            else:
+                return False
+
+        else:
+            raise ValueError("Не верное заклинание")
 
     def increase_magic_level(self, amount: float):
         if amount > 0:
@@ -110,8 +138,15 @@ class Wizard:
             return False
 
     def __str__(self):
+        if len(self.__spells) == 0:
+            spells = 'Заклинаний нет'
+        else:
+            spells = ''
+            for i in range(0,len(self.__spells)):
+                spells += Spell.get_name(self.__spells[i]) + '\n'
+
         return (f"Имя:{self.__name}\tФакультет:{self.__faculty}\nУровень магической силы:{self.__magic_level}\n"
-                f"Текущий статус:{self.__status}\nКоличество заклинаний:\n{len(self.__spells)}\n")
+                f"Текущий статус:{self.__status}\nЗаклинания:\n{spells}\n")
 
 s = Spell('Бомбарда', 5, 'Боевое', 'заклинание, взрыва препятствия')
 s1 = Spell('Бомбарда Максимум', 9, 'Боевое', 'заклинание, взрыва препятствия')
@@ -120,4 +155,3 @@ print(w)
 w.add_spell(s)
 w.add_spell(s1)
 print(w)
-w.get_spells()
