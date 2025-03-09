@@ -5,7 +5,7 @@
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="6OvfIKJXmh507ByDLk9z-1" value="Use-case" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=26;" parent="1" vertex="1">
-          <mxGeometry x="-1590" y="40" width="118" height="30" as="geometry" />
+          <mxGeometry x="-1590" y="10" width="118" height="30" as="geometry" />
         </mxCell>
         <mxCell id="6OvfIKJXmh507ByDLk9z-2" value="Выбрать список" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="-1406" y="193" width="120" height="80" as="geometry" />
@@ -107,17 +107,17 @@
         <mxCell id="6OvfIKJXmh507ByDLk9z-43" value="Удалить товар" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="-1044" y="400" width="120" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="LoFPzJDOxElb0u1yacSO-2" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.886;exitY=0.821;exitDx=0;exitDy=0;entryX=0.028;entryY=0.324;entryDx=0;entryDy=0;dashed=1;entryPerimeter=0;exitPerimeter=0;" edge="1" parent="1" source="6OvfIKJXmh507ByDLk9z-7" target="LoFPzJDOxElb0u1yacSO-4">
+        <mxCell id="LoFPzJDOxElb0u1yacSO-2" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.886;exitY=0.821;exitDx=0;exitDy=0;entryX=0.028;entryY=0.324;entryDx=0;entryDy=0;dashed=1;entryPerimeter=0;exitPerimeter=0;" parent="1" source="6OvfIKJXmh507ByDLk9z-7" target="LoFPzJDOxElb0u1yacSO-4" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="-1147" y="588" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="LoFPzJDOxElb0u1yacSO-3" value="&amp;lt;include&amp;gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="LoFPzJDOxElb0u1yacSO-2">
+        <mxCell id="LoFPzJDOxElb0u1yacSO-3" value="&amp;lt;include&amp;gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="LoFPzJDOxElb0u1yacSO-2" vertex="1" connectable="0">
           <mxGeometry x="-0.2528" y="-5" relative="1" as="geometry">
             <mxPoint x="-9" y="-4" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="LoFPzJDOxElb0u1yacSO-4" value="Заполнить данные" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="LoFPzJDOxElb0u1yacSO-4" value="Заполнить данные" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="-1044" y="545" width="120" height="80" as="geometry" />
         </mxCell>
       </root>
